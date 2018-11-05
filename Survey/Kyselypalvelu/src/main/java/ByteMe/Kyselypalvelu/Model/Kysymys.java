@@ -22,13 +22,13 @@ public class Kysymys {
 	@JoinColumn (name = "kyselyId")
 	private Kysely kysely;
 
-	public Kysymys(String kysymys) {
+	public Kysymys() {
 	}
 
-	public Kysymys(String kysymys, Kysely kysely) {
+	public Kysymys(long id, String kysymys) {
 		super();
+		this.id = id;
 		this.kysymys = kysymys;
-		this.kysely = kysely;
 	}
 
 	public long getId() {
@@ -53,15 +53,6 @@ public class Kysymys {
 
 	public void setKysely(Kysely kysely) {
 		this.kysely = kysely;
-	}
-
-	@Override
-	public String toString() {
-		if (this.kysely != null)
-		return "Kysymys [id=" + id + ", kysymys=" + kysymys + ", kysely=" + this.getKysely() + "]";
-		
-		else 
-			return "Kysymys [id=" + id + ", kysymys=" + kysymys + "]";
 	}
 
 }

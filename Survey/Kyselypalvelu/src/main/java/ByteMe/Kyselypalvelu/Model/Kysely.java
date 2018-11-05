@@ -1,13 +1,17 @@
 package ByteMe.Kyselypalvelu.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -20,14 +24,16 @@ public class Kysely {
 	private long kyselyId;
 	private String kyselyNimi;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "kysely")
+	
+	@Column
+    @ElementCollection
 	@JsonManagedReference
-	private List<Kysymys> kysymykset;
+	private List<String> kysymykset;
 
 	public Kysely() {
 	}
 
-	public Kysely(String kyselyNimi, List<Kysymys> kysymykset) {
+	public Kysely(String kyselyNimi, List<String> kysymykset) {
 		super();
 		this.kyselyNimi = kyselyNimi;
 		this.kysymykset = kysymykset;
@@ -49,11 +55,11 @@ public class Kysely {
 		this.kyselyNimi = kyselyNimi;
 	}
 
-	public List<Kysymys> getKysymykset() {
+	public List<String> getKysymykset() {
 		return kysymykset;
 	}
 
-	public void setKysymykset(List<Kysymys> kysymykset) {
+	public void setKysymykset(List<String> kysymykset) {
 		this.kysymykset = kysymykset;
 	}
 

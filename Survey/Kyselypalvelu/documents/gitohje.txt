@@ -1,0 +1,18 @@
+https://bytemekysely.herokuapp.com/
+
+1.) Add the changed files by using git command
+git add .
+2.) Commit the files with comments
+git commit -m “Adding new method…”
+3.) Push the changes to GitHub
+git push -u origin master
+
+
+
+MERGE
+press i
+type message
+press esc
+type :wq
+press enter
+

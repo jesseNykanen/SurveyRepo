@@ -21,7 +21,7 @@ public class KyselypalveluApplication {
 	private static final Logger log = LoggerFactory.getLogger(KyselypalveluApplication.class);
 
 	public static void main(String[] args) {
-		log.info("SOVELLUS KAYNNISTYY :)");
+		log.info("SOVELLUS KAYNNISTYY");
 		SpringApplication.run(KyselypalveluApplication.class, args);
 	}
 

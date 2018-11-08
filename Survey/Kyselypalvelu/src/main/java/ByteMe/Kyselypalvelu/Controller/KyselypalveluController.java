@@ -37,8 +37,8 @@ public class KyselypalveluController {
 	}
 	
 	// INDEX PAGE 
-	@GetMapping({"/index ,/"})
+	@GetMapping("/")
 	public String indexPage(Model model) {
-		return "indexPage";
+		return "index";
 	}
 }

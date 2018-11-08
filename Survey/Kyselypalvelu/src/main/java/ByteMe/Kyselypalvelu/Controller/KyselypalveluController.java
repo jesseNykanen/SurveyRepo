@@ -11,23 +11,32 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import ByteMe.Kyselypalvelu.Model.Kysely;
 import ByteMe.Kyselypalvelu.Model.KyselyRepository;
+import ByteMe.Kyselypalvelu.Model.Kysymys;
+import ByteMe.Kyselypalvelu.Model.KysymysRepository;
 
 @Controller
 public class KyselypalveluController {
 
 	@Autowired
 	private KyselyRepository kyselyrepository;
+	@Autowired
+	private KysymysRepository kysymysrepository;
 	
 	// PALAUTTAA KAIKKI KYSELYT
 	@RequestMapping("/kyselyt")
-	public @ResponseBody List<Kysely> findKyselyRest() {
-		System.out.println("Controller print" + kyselyrepository.findAll());
-		return (List<Kysely>) kyselyrepository.findAll();
+	public @ResponseBody List<Kysymys> findKyselyRest() {
+		return (List<Kysymys>) kysymysrepository.findAll();
 	}
 	
 	// PALAUTTAA YHDEN KYSELYN ID:LLÄ
 	@RequestMapping("/kyselyt/{id}")
 	public @ResponseBody Optional<Kysely> findKyselyRest(@PathVariable("id") Long kyselyId) {
 		return kyselyrepository.findById(kyselyId);
+	}
+	
+	// INDEX PAGE (MISSÄ EI OLE MITÄÄN)
+	@RequestMapping("/index")
+	public String indexPage() {
+		return "indexPage";
 	}
 }

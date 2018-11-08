@@ -18,16 +18,15 @@ public class Kysymys {
 	private String kysymys;
 
 	@JsonIgnore
-	@ManyToOne 
-	@JoinColumn (name = "kyselyId")
+	@ManyToOne
+	@JoinColumn(name = "kyselyId")
 	private Kysely kysely;
 
 	public Kysymys() {
 	}
 
-	public Kysymys(long id, String kysymys) {
+	public Kysymys(String kysymys) {
 		super();
-		this.id = id;
 		this.kysymys = kysymys;
 	}
 
@@ -53,6 +52,15 @@ public class Kysymys {
 
 	public void setKysely(Kysely kysely) {
 		this.kysely = kysely;
+	}
+
+	@Override
+	public String toString() {
+		if (this.kysely != null)
+			return "Kysymys [id=" + id + ", kysymys= " + kysymys + ",  kysely=" + kysely + "]";
+
+		else
+			return "Kysymys [id=" + id + ", kysymys = " + kysymys +  "]";
 	}
 
 }

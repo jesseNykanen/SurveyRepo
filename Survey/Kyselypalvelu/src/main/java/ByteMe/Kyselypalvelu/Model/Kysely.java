@@ -1,20 +1,16 @@
 package ByteMe.Kyselypalvelu.Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Kysely {
@@ -24,16 +20,14 @@ public class Kysely {
 	private long kyselyId;
 	private String kyselyNimi;
 
-	
-	@Column
-    @ElementCollection
-	@JsonManagedReference
-	private List<String> kysymykset;
+	@JsonIgnore
+	@OneToMany (cascade = CascadeType.ALL, mappedBy = "kysely")
+	private List<Kysymys> kysymykset;
 
 	public Kysely() {
 	}
 
-	public Kysely(String kyselyNimi, List<String> kysymykset) {
+	public Kysely(String kyselyNimi, List<Kysymys> kysymykset) {
 		super();
 		this.kyselyNimi = kyselyNimi;
 		this.kysymykset = kysymykset;
@@ -55,17 +49,19 @@ public class Kysely {
 		this.kyselyNimi = kyselyNimi;
 	}
 
-	public List<String> getKysymykset() {
+	public List<Kysymys> getKysymykset() {
 		return kysymykset;
 	}
 
-	public void setKysymykset(List<String> kysymykset) {
+	public void setKysymykset(List<Kysymys> kysymykset) {
 		this.kysymykset = kysymykset;
 	}
 
+	//  TÄSSÄ TOSTRINGISSÄ EI SAA OLLA LISTAA
+	
 	@Override
 	public String toString() {
-		return "Kysely [kyselyId=" + kyselyId + ", kyselyNimi=" + kyselyNimi + ", kysymykset=" + kysymykset + "]";
+		return "Kysely [kyselyId=" + kyselyId + ", kyselyNimi=" + kyselyNimi +  "]";
 	}
-
 }
+

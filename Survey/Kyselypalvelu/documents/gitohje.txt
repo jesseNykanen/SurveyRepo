@@ -16,3 +16,8 @@ press esc
 type :wq
 press enter
 
+
+Overwrite local repo
+git reset --hard origin/master
+git fetch origin master
+

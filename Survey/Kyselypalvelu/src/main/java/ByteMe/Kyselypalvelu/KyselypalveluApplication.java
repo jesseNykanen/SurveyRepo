@@ -31,6 +31,7 @@ public class KyselypalveluApplication {
 			log.info("Hieman testaus dataa");
 			
 			List<Kysymys> kysymykset = new ArrayList<Kysymys>();
+			List<Kysymys> kysymykset2 = new ArrayList<Kysymys>();
 			
 			kysymykset.add(new Kysymys("Mihin eri tarkoituksiin olet käyttänyt peppiä? (esim. HOPS, opiskeluohjeet…"));
 			kysymykset.add(new Kysymys("Oletko onnistunut tekemään haluamasi käyttäessäsi peppiä?"));
@@ -38,11 +39,20 @@ public class KyselypalveluApplication {
 			kysymykset.add(new Kysymys("Tuntuiko, että pepin käyttö helpottui ensimmäisen käyttökerran jälkeen?"));
 			kysymykset.add(new Kysymys("Onko järjestelmässä mielestäsi joitakin puutteita? Mitä?"));
 			
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys yksi"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys kaksi"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys kolme"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys neljä"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys viisi :)"));
+			
 			Kysely kysely = new Kysely("MyNet Peppi Kysely", kysymykset);
+			Kysely kysely2 = new Kysely("Testi kysely", kysymykset2);
 			
 			kyselyRepository.save(kysely);
+			kyselyRepository.save(kysely2);
 			kysymysrepository.saveAll(kysymykset);
-			System.out.println("Tässä kysely: " + kyselyRepository.findAll());
+			kysymysrepository.saveAll(kysymykset2);
+			System.out.println("Tässä kyselyt: " + kyselyRepository.findAll());
 
 		};
 	}

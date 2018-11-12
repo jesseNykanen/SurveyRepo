@@ -5,9 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,22 +23,34 @@ public class KyselypalveluController {
 	private KyselyRepository kyselyrepository;
 	@Autowired
 	private KysymysRepository kysymysrepository;
-	
-	// PALAUTTAA KAIKKI KYSELYT
-	@RequestMapping("/kyselyt")
+
+	// PALAUTTAA KAIKKI KYSYMYKSET
+	@RequestMapping("/kysymykset")
 	public @ResponseBody List<Kysymys> findKyselyRest() {
 		return (List<Kysymys>) kysymysrepository.findAll();
 	}
-	
+
+	// PALAUTTAA
+	@RequestMapping("/kysymys/{id}")
+	public @ResponseBody Optional<Kysymys> findKysymysRest(@PathVariable("id") Long kysymysId) {
+		return kysymysrepository.findById(kysymysId);
+	}
+
+	// PALAUTTAA KAIKKI KYSELYT
+	@RequestMapping("/kyselyt")
+	public @ResponseBody List<Kysely> findKyselytRest() {
+		return (List<Kysely>) kyselyrepository.findAll();
+	}
+
 	// PALAUTTAA YHDEN KYSELYN ID:LLÄ
 	@RequestMapping("/kyselyt/{id}")
 	public @ResponseBody Optional<Kysely> findKyselyRest(@PathVariable("id") Long kyselyId) {
 		return kyselyrepository.findById(kyselyId);
 	}
 	
-	// INDEX PAGE 
-	@GetMapping("/")
-	public String indexPage(Model model) {
-		return "index";
+	// LISÄÄ KYSYMYKSEN
+	@PostMapping("/uusiKysymys")
+	Kysymys uusiKysymys(@RequestBody Kysymys uusiKysymys) {
+		return kysymysrepository.save(uusiKysymys);
 	}
 }

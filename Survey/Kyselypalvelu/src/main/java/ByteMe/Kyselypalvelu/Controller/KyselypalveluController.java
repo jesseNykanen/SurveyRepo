@@ -67,12 +67,16 @@ public class KyselypalveluController {
 			@RequestParam(name = "lastname") String sukunimi) {
 		return "Hello " + etunimi + " " + sukunimi;
 	}
-	
+
 	// UUSI VASTAUS
 	@PostMapping("/uusiVastaus")
 	Vastaus uusiVastaus(@RequestBody Vastaus vastaus) {
 		return vastausrepository.save(vastaus);
-		
 	}
 	
+	@RequestMapping("/vastaukset")
+	public @ResponseBody List<Vastaus> findVastauksetRest() {
+		return (List<Vastaus>) vastausrepository.findAll();
+	}
+
 }

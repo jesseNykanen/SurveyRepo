@@ -25,10 +25,11 @@ public class KyselypalveluController {
 	private KysymysRepository kysymysrepository;
 	
 	//uudelleenohjaa 
-	@RequestMapping("/")
-	public String index() {
-		return "redirect:/kysymykset";
-	}
+//	@RequestMapping("/")
+//	public String index() {
+//		return "redirect:/kysymykset";
+//	}
+	
 	// PALAUTTAA KAIKKI KYSYMYKSET
 	@RequestMapping("/kysymykset")
 	public @ResponseBody List<Kysymys> findKyselyRest() {

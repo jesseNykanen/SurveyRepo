@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import ByteMe.Kyselypalvelu.Model.Kysely;
@@ -23,7 +23,12 @@ public class KyselypalveluController {
 	private KyselyRepository kyselyrepository;
 	@Autowired
 	private KysymysRepository kysymysrepository;
-
+	
+	//uudelleenohjaa 
+	@RequestMapping("/")
+	public String index() {
+		return "redirect:/kysymykset";
+	}
 	// PALAUTTAA KAIKKI KYSYMYKSET
 	@RequestMapping("/kysymykset")
 	public @ResponseBody List<Kysymys> findKyselyRest() {
@@ -50,7 +55,8 @@ public class KyselypalveluController {
 	
 	// LISÄÄ KYSYMYKSEN
 	@PostMapping("/uusiKysymys")
-	Kysymys uusiKysymys(@RequestBody Kysymys uusiKysymys) {
-		return kysymysrepository.save(uusiKysymys);
+	public String helloYou(@RequestParam(name="firstname") String etunimi, 
+			@RequestParam(name="lastname") String sukunimi) {
+		return "Hello " + etunimi + " " +sukunimi;
+	} 
 	}
-}

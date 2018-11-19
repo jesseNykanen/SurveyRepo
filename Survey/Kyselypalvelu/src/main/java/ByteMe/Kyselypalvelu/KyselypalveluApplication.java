@@ -45,11 +45,22 @@ public class KyselypalveluApplication {
 			kysymykset2.add(new Kysymys("Tämä on testi kysymys neljä"));
 			kysymykset2.add(new Kysymys("Tämä on testi kysymys viisi :)"));
 			
-			Kysely kysely = new Kysely("MyNet Peppi Kysely", kysymykset);
+			Kysely kysely1 = new Kysely("MyNet Peppi Kysely", kysymykset);
 			Kysely kysely2 = new Kysely("Testi kysely", kysymykset2);
 			
-			kyselyRepository.save(kysely);
+			kyselyRepository.save(kysely1);
 			kyselyRepository.save(kysely2);
+			
+			// ASETTAA KYSYMYKSILLE OIKEAN KYSELY IDN
+			
+			for (int i = 0; i < kysymykset.size(); i++) {
+				kysymykset.get(i).setKysely(kysely1);
+			}
+			
+			for (int i = 0; i < kysymykset2.size(); i++) {
+				kysymykset2.get(i).setKysely(kysely2);
+			}
+			
 			kysymysrepository.saveAll(kysymykset);
 			kysymysrepository.saveAll(kysymykset2);
 			System.out.println("Tässä kyselyt: " + kyselyRepository.findAll());

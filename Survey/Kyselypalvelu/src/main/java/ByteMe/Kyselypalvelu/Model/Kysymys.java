@@ -17,7 +17,7 @@ public class Kysymys {
 	private long id;
 	private String kysymys;
 
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name = "kyselyId")
 	private Kysely kysely;

@@ -7,4 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 public interface KyselyRepository extends CrudRepository<Kysely, Long> {
 
 	List<Kysely> findByKyselyNimi (String kyselyNimi);
+	
+	List<Kysely> findByKyselyId (Long kyselyId);
 }

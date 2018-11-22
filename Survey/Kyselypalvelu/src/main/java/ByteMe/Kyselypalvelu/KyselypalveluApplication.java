@@ -21,7 +21,7 @@ public class KyselypalveluApplication {
 	private static final Logger log = LoggerFactory.getLogger(KyselypalveluApplication.class);
 
 	public static void main(String[] args) {
-		log.info("SOVELLUS KAYNNISTYY :)");
+		log.info("SOVELLUS KÄYNNISTYY :)");
 		SpringApplication.run(KyselypalveluApplication.class, args);
 	}
 
@@ -34,7 +34,7 @@ public class KyselypalveluApplication {
 			List<Kysymys> kysymykset2 = new ArrayList<Kysymys>();
 			
 			kysymykset.add(new Kysymys("Mihin eri tarkoituksiin olet käyttänyt peppiä? (esim. HOPS, opiskeluohjeet…"));
-			kysymykset.add(new Kysymys("Oletko onnistunut tekemään haluamasi käyttäessäsi peppiä?"));
+			kysymykset.add(new Kysymys("Oletko onnistunut tekemään haluamasi muutokset käyttäessäsi peppiä?"));
 			kysymykset.add(new Kysymys("Tuntuiko, että käytit siihen enemmän aikaa kuin olisit halunnut/odottanut?"));
 			kysymykset.add(new Kysymys("Tuntuiko, että pepin käyttö helpottui ensimmäisen käyttökerran jälkeen?"));
 			kysymykset.add(new Kysymys("Onko järjestelmässä mielestäsi joitakin puutteita? Mitä?"));

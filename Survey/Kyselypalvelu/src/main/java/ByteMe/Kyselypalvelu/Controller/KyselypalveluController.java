@@ -25,11 +25,11 @@ public class KyselypalveluController {
 	@Autowired
 	private KysymysRepository kysymysrepository;
 
-	// uudelleenohjaa
-	// @RequestMapping("/")
-	// public String index() {
-	// return "redirect:/kysymykset";
-	// }
+	// OHJAA INDEX SIVULLE
+	@RequestMapping("/")
+	public String index() {
+		return "redirect:./sivupohja";
+	}
 
 	// PALAUTTAA KAIKKI KYSYMYKSET
 	@RequestMapping("/kysymykset")

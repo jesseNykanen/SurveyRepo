@@ -28,7 +28,7 @@ public class KyselypalveluController {
 	// OHJAA INDEX SIVULLE
 	@RequestMapping("/")
 	public String index() {
-		return "redirect:./sivupohja";
+		return "sivupohja";
 	}
 
 	// PALAUTTAA KAIKKI KYSYMYKSET

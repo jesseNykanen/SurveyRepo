@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import ByteMe.Kyselypalvelu.Model.KyselyRepository;
 import ByteMe.Kyselypalvelu.Model.Vastaus;
 import ByteMe.Kyselypalvelu.Model.VastausRepository;
 
@@ -20,8 +19,6 @@ public class VastausController {
 
 	@Autowired
 	private VastausRepository vastausrepository;
-	@Autowired
-	private KyselyRepository kyselyrepository;
 
 	// UUSI VASTAUS
 	@PostMapping("/uusiVastaus")

@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 public class Kysely {
@@ -58,7 +56,7 @@ public class Kysely {
 		this.kysymykset = kysymykset;
 	}
 
-	//  TÄSSÄ TOSTRINGISSÄ EI SAA OLLA LISTAA
+	//  TÄSSÄ TOSTRINGISSÄ EI SAA OLLA LISTAA ! 
 	
 	@Override
 	public String toString() {

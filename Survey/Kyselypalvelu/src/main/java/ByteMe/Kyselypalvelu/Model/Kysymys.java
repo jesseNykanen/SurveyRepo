@@ -1,41 +1,52 @@
 package ByteMe.Kyselypalvelu.Model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Kysymys {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private long kysymysId;
 	private String kysymys;
 
-	
 	@ManyToOne
 	@JoinColumn(name = "kyselyId")
 	private Kysely kysely;
+	
+	@OneToMany (cascade = CascadeType.ALL, mappedBy = "kysymys")
+	@JsonBackReference
+	private List<Vaihtoehto> vaihtoehdot;
+	
+	private String kysymysTyyppi;
 
 	public Kysymys() {
 	}
 
-	public Kysymys(String kysymys) {
+	public Kysymys(String kysymys, List<Vaihtoehto> vaihtoehdot, String kysymysTyyppi) {
 		super();
 		this.kysymys = kysymys;
+		this.vaihtoehdot = vaihtoehdot;
+		this.kysymysTyyppi = kysymysTyyppi;
 	}
 
-	public long getId() {
-		return id;
+	public long getKysymysId() {
+		return kysymysId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void seKysymysId(long kysymysId) {
+		this.kysymysId = kysymysId;
 	}
 
 	public String getKysymys() {
@@ -54,13 +65,28 @@ public class Kysymys {
 		this.kysely = kysely;
 	}
 
+	public String getKysymysTyyppi() {
+		return kysymysTyyppi;
+	}
+
+	public void setKysymysTyyppi(String kysymysTyyppi) {
+		this.kysymysTyyppi = kysymysTyyppi;
+	}
+
+	public List<Vaihtoehto> getVaihtoehdot() {
+		return vaihtoehdot;
+	}
+
+	public void setVaihtoehdot(List<Vaihtoehto> vaihtoehdot) {
+		this.vaihtoehdot = vaihtoehdot;
+	}
+
 	@Override
 	public String toString() {
 		if (this.kysely != null)
-			return "Kysymys [id=" + id + ", kysymys= " + kysymys + ",  kysely=" + kysely + "]";
+			return "Kysymys [kysymysId=" + kysymysId + ", kysymys= " + kysymys + ",  kysely=" + kysely + ", kysymysTyyppi= " + kysymysTyyppi +"]";
 
 		else
-			return "Kysymys [id=" + id + ", kysymys = " + kysymys +  "]";
+			return "Kysymys [kysymysId=" + kysymysId + ", kysymys = " + kysymys + ", kysymysTyyppi= " + kysymysTyyppi + "]";
 	}
-
 }

@@ -8,40 +8,40 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Vastaus {
+public class Vaihtoehto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long vastausId;
-	private String vastaus;
+	private Long vaihtoehtoId;
+	private String valintaTeksti;
 	
 	@ManyToOne
 	@JoinColumn(name = "kysymysId")
 	private Kysymys kysymys;
-
-	public Vastaus() {
+	
+	public Vaihtoehto() {
 	}
 
-	public Vastaus(String vastaus, Kysymys kysymys) {
+	public Vaihtoehto( String valintaTeksti, Kysymys kysymys) {
 		super();
-		this.vastaus = vastaus;
+		this.valintaTeksti = valintaTeksti;
 		this.kysymys = kysymys;
 	}
 
-	public long getVastausId() {
-		return vastausId;
+	public Long getVaihtoehtoId() {
+		return vaihtoehtoId;
 	}
 
-	public void setVastausId(long vastausId) {
-		this.vastausId = vastausId;
+	public void setVaihtoehtoId(Long vaihtoehtoId) {
+		this.vaihtoehtoId = vaihtoehtoId;
 	}
 
-	public String getVastaus() {
-		return vastaus;
+	public String getValintaTeksti() {
+		return valintaTeksti;
 	}
 
-	public void setVastaus(String vastaus) {
-		this.vastaus = vastaus;
+	public void setValintaTeksti(String valintaTeksti) {
+		this.valintaTeksti = valintaTeksti;
 	}
 
 	public Kysymys getKysymys() {
@@ -54,7 +54,7 @@ public class Vastaus {
 
 	@Override
 	public String toString() {
-		
-		return "Vastaus [vastausId=" + vastausId + ", vastaus=" + vastaus + "]";
+		return "Vaihtoehto [vaihtoehtoId=" + vaihtoehtoId + ", valintaTeksti=" + valintaTeksti + "]";
 	}
+	
 }

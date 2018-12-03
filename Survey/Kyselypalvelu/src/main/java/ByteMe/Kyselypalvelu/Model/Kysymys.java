@@ -34,11 +34,10 @@ public class Kysymys {
 	public Kysymys() {
 	}
 
-	public Kysymys(String kysymys, List<Vaihtoehto> vaihtoehdot, String kysymysTyyppi) {
+	public Kysymys(String kysymys) {
 		super();
 		this.kysymys = kysymys;
-		this.vaihtoehdot = vaihtoehdot;
-		this.kysymysTyyppi = kysymysTyyppi;
+
 	}
 
 	public long getKysymysId() {

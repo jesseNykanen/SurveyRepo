@@ -35,17 +35,17 @@ public class KyselypalveluApplication {
 			
 			// 90ba9fbdc3fea08b4e0216da50342aced342f0e9 VIIMEINEN TOIMIVA VERSIO :^)
 			
-		//	kysymykset.add(new Kysymys("Mihin eri tarkoituksiin olet käyttänyt peppiä? (esim. HOPS, opiskeluohjeet…"));
-		//	kysymykset.add(new Kysymys("Oletko onnistunut tekemään haluamasi muutokset käyttäessäsi peppiä?"));
-		//	kysymykset.add(new Kysymys("Tuntuiko, että käytit siihen enemmän aikaa kuin olisit halunnut/odottanut?"));
-		//	kysymykset.add(new Kysymys("Tuntuiko, että pepin käyttö helpottui ensimmäisen käyttökerran jälkeen?"));
-		//	kysymykset.add(new Kysymys("Onko järjestelmässä mielestäsi joitakin puutteita? Mitä?"));
+			kysymykset.add(new Kysymys("Mihin eri tarkoituksiin olet käyttänyt peppiä? (esim. HOPS, opiskeluohjeet…"));
+			kysymykset.add(new Kysymys("Oletko onnistunut tekemään haluamasi muutokset käyttäessäsi peppiä?"));
+			kysymykset.add(new Kysymys("Tuntuiko, että käytit siihen enemmän aikaa kuin olisit halunnut/odottanut?"));
+			kysymykset.add(new Kysymys("Tuntuiko, että pepin käyttö helpottui ensimmäisen käyttökerran jälkeen?"));
+			kysymykset.add(new Kysymys("Onko järjestelmässä mielestäsi joitakin puutteita? Mitä?"));
 			
-		//	kysymykset2.add(new Kysymys("Tämä on testi kysymys yksi"));
-		//	kysymykset2.add(new Kysymys("Tämä on testi kysymys kaksi"));
-		//	kysymykset2.add(new Kysymys("Tämä on testi kysymys kolme"));
-		//	kysymykset2.add(new Kysymys("Tämä on testi kysymys neljä"));
-		//	kysymykset2.add(new Kysymys("Tämä on testi kysymys viisi :)"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys yksi"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys kaksi"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys kolme"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys neljä"));
+			kysymykset2.add(new Kysymys("Tämä on testi kysymys viisi :)"));
 			
 			Kysely kysely1 = new Kysely("MyNet Peppi Kysely", kysymykset);
 			Kysely kysely2 = new Kysely("Testi kysely", kysymykset2);

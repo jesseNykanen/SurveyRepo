@@ -7,8 +7,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Vastaus {
+	
+/* 	ESIMERKKI JSON
+
+  	{
+	    "vastausId": null,
+	    "vastaus": "Olen käyttänyt Peppiä kursseille ilmoittautumiseen",
+	    "kysymys": {
+	        "kysymysId": 1
+	    }
+	} 
+*/
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +29,7 @@ public class Vastaus {
 	private String vastaus;
 	
 	@ManyToOne
+	@JsonBackReference
 	@JoinColumn(name = "kysymysId")
 	private Kysymys kysymys;
 

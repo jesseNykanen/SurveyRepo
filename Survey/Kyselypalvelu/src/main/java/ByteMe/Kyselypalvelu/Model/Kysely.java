@@ -20,7 +20,7 @@ public class Kysely {
 	private String kyselyNimi;
 
 	@JsonBackReference
-	@OneToMany (cascade = CascadeType.ALL, mappedBy = "kysely")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysely")
 	private List<Kysymys> kysymykset;
 
 	public Kysely() {
@@ -56,11 +56,10 @@ public class Kysely {
 		this.kysymykset = kysymykset;
 	}
 
-	//  TÄSSÄ TOSTRINGISSÄ EI SAA OLLA LISTAA ! 
-	
+	// TÄSSÄ TOSTRINGISSÄ EI SAA OLLA LISTAA !
+
 	@Override
 	public String toString() {
-		return "Kysely [kyselyId=" + kyselyId + ", kyselyNimi=" + kyselyNimi +  "]";
+		return "Kysely [kyselyId=" + kyselyId + ", kyselyNimi=" + kyselyNimi + "]";
 	}
 }
-

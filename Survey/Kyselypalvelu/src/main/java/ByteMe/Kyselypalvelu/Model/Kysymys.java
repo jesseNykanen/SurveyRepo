@@ -24,20 +24,31 @@ public class Kysymys {
 	@ManyToOne
 	@JoinColumn(name = "kyselyId")
 	private Kysely kysely;
-	
-	@OneToMany (cascade = CascadeType.ALL, mappedBy = "kysymys")
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
 	@JsonBackReference
 	private List<Vaihtoehto> vaihtoehdot;
-	
+
+//	@JsonBackReference
+//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "kysymys")
+//	private List<Vastaus> vastaukset;
+
 	private String kysymysTyyppi;
 
 	public Kysymys() {
 	}
 
-	public Kysymys(String kysymys) {
+	public Kysymys(String kysymys, String kysymysTyyppi) {
 		super();
 		this.kysymys = kysymys;
+		this.kysymysTyyppi = kysymysTyyppi;
 
+	}
+	public Kysymys(String kysymys, String kysymysTyyppi, List<Vaihtoehto> vaihtoehdot, List<Vastaus> vastaukset) {
+		super();
+		this.kysymys = kysymys;
+		this.kysymysTyyppi = kysymysTyyppi;
+	//	this.vastaukset = vastaukset;
 	}
 
 	public long getKysymysId() {
@@ -80,12 +91,26 @@ public class Kysymys {
 		this.vaihtoehdot = vaihtoehdot;
 	}
 
+//	public List<Vastaus> getVastaukset() {
+//		return vastaukset;
+//	}
+
+//	public void setVastaukset(List<Vastaus> vastaukset) {
+//	this.vastaukset = vastaukset;
+//	}
+
+	public void setKysymysId(long kysymysId) {
+		this.kysymysId = kysymysId;
+	}
+
 	@Override
 	public String toString() {
 		if (this.kysely != null)
-			return "Kysymys [kysymysId=" + kysymysId + ", kysymys= " + kysymys + ",  kysely=" + kysely + ", kysymysTyyppi= " + kysymysTyyppi +"]";
+			return "Kysymys [kysymysId=" + kysymysId + ", kysymys= " + kysymys + ",  kysely=" + kysely
+					+ ", kysymysTyyppi= " + kysymysTyyppi + "]";
 
 		else
-			return "Kysymys [kysymysId=" + kysymysId + ", kysymys = " + kysymys + ", kysymysTyyppi= " + kysymysTyyppi + "]";
+			return "Kysymys [kysymysId=" + kysymysId + ", kysymys = " + kysymys + ", kysymysTyyppi= " + kysymysTyyppi
+					+ "]";
 	}
 }

@@ -13,17 +13,25 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import ByteMe.Kyselypalvelu.Model.Vastaus;
 import ByteMe.Kyselypalvelu.Model.VastausRepository;
 
-@Controller
 @CrossOrigin
+@Controller
 public class VastausController {
 
 	@Autowired
 	private VastausRepository vastausrepository;
 
-	// UUSI VASTAUS
+	// UUSI VASTAUS POST
 	@PostMapping("/uusiVastaus")
-	Vastaus uusiVastaus(@RequestBody Vastaus vastaus) {
+	public @ResponseBody Vastaus uusiVastaus(@RequestBody Vastaus vastaus) {
+		System.out.println("Hei");
 		return vastausrepository.save(vastaus);
+	}
+
+	// UUSI VASTAUSLISTA POST
+	@PostMapping("/uusiVastauslista")
+	List<Vastaus> uusiVastauslista(@RequestBody List<Vastaus> vastaukset) {
+		System.out.println("selaimelta tuli vastauslista" + vastaukset);
+		return (List<Vastaus>) vastausrepository.saveAll(vastaukset);
 	}
 
 	// NAYTTAA KAIKKI VASTAUKSET

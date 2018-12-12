@@ -23,13 +23,12 @@ public class VastausController {
 	// UUSI VASTAUS POST
 	@PostMapping("/uusiVastaus")
 	public @ResponseBody Vastaus uusiVastaus(@RequestBody Vastaus vastaus) {
-		System.out.println("Hei");
 		return vastausrepository.save(vastaus);
 	}
 
 	// UUSI VASTAUSLISTA POST
 	@PostMapping("/uusiVastauslista")
-	List<Vastaus> uusiVastauslista(@RequestBody List<Vastaus> vastaukset) {
+	public @ResponseBody List<Vastaus> uusiVastauslista(@RequestBody List<Vastaus> vastaukset) {
 		System.out.println("selaimelta tuli vastauslista" + vastaukset);
 		return (List<Vastaus>) vastausrepository.saveAll(vastaukset);
 	}

@@ -27,19 +27,69 @@ body {
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
 }
+
+#linkki:hover #esimerkki {
+display: block;
+
+}
+
+#esimerkki {
+  display: none;
+  font-size: 15px;
+  margin: 10px;
+  margin-right: 20%;
+  padding: 5px; 
+}
+
+
 </style>
     <title>Index</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body bgcolor="#00FF00">
 	<h1>Byte Me Index </h1>
-   
-	 <a href="/kyselyt"> /kyselyt </a> <br/>
-	 <a href="/kysymykset"> /kysymykset </a> <br/>
-	 <a href="/uusiKysymys">/uusiKysymys</a> <br/>
-	 <a href="/kysely/1/kysymykset"> /kysely/1/kysymykset </a>  <br/>
-	 <a href="/kysely/2/kysymykset"> /kysely/2/kysymykset </a> <br/>
-	 <a href="/vastaukset">/vastaukset</a> <br/>
-	 <a href="/uusiVastaus">/uusiVastaus</a> <br/>
+	
+   	<div id="linkki">
+   		<a href="/kyselyt"> /kyselyt </a> <a> (Get) </a> <br/>
+   		<span id="esimerkki">
+   		[{"kyselyId":1,"kyselyNimi":"MyNet Peppi Kysely"}]
+   		</span>
+   	</div>
+   	<br/>
+   	 <div id="linkki">
+   		<a href="/kysymykset"> /kysymykset </a> <a> (Get) </a> <br/>
+   		<span id="esimerkki">
+			[{"kysymysId":1,"kysymys":"Mihin eri tarkoituksiin olet käyttänyt peppiä? (esim. HOPS, opiskeluohjeet…","kysely":{"kyselyId":1,"kyselyNimi":"MyNet Peppi Kysely"},"kysymysTyyppi":"Tekstikysymys"},...
+   		</span>
+   	</div>
+   	<br/>
+   	<div id="linkki">
+   		<a href="/kysely/1/kysymykset"> /kysely/1/kysymykset </a> <a> (Get) </a> <br/>
+   		<span id="esimerkki">
+   		[{"kysymysId":1,"kysymys":"Mihin eri tarkoituksiin olet käyttänyt peppiä? (esim. HOPS, opiskeluohjeet…","kysely":{"kyselyId":1,"kyselyNimi":"MyNet Peppi Kysely"},"kysymysTyyppi":"Tekstikysymys"},...
+   		</span>
+   	</div>
+	<br/>
+	<div id="linkki">
+   		<a href="/vastaukset">/vastaukset</a> <a> (Get) </a> <br/>
+   		<span id="esimerkki">
+   		[{"vastausId":1,"vastaus":"Olen käyttänyt Peppiä kursseille ilmoittautumiseen"},...
+   		</span>
+   	</div>
+	<br/> 
+	<div id="linkki">
+   		<a href="/uusiVastaus">/uusiVastaus</a> <a> (Post) </a> <br/>
+   		<span id="esimerkki">
+   		{ "vastausId": null, "vastaus": "Olen käyttänyt Peppiä kursseille ilmoittautumiseen :)","kysymys": {"kysymysId": 1}}
+   		</span>
+   	</div>
+   	<br/>
+   	<div id="linkki">
+   		<a href="/uusiVastauslista">/uusiVastauslista</a> <a> (Post) </a> <br/>
+   		<span id="esimerkki">
+   		[{"vastausId": null,"vastaus": "Olen käyttänyt Peppiä kursseille ilmoittautumiseen :)","kysymys": {"kysymysId": 1}},...
+   		</span>
+   	</div>
+
 </body>
 </html>
